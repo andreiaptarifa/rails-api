@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    render json: {}
+    render json: Article.all
   end
 
   def show
