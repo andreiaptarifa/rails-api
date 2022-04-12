@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-    render json: Article.all
+    articles = Article.all
+    render json: serializer.new(articles)
+  end
+
+  def serializer
+    ArticleSerializer
   end
 
   def show
