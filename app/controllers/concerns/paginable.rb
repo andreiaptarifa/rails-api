@@ -7,7 +7,7 @@ module Paginable
       params: pagination_params,
       base_url: request.url
     )
-    
+
   end
 
   def paginator
@@ -16,6 +16,16 @@ module Paginable
 
   def pagination_params
     params.permit![:page]
+  end
+
+  def render_collection(paginated)
+    options =
+    {
+      meta: paginated.meta.to_h,
+      links: paginated.links.to_h
+    }
+    result = serializer.new(paginated.items, options)
+    render json: result
   end
 
 end
