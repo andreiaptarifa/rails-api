@@ -25,6 +25,13 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Installing JSON API serializer:
 gem 'jsonapi-serializer'
 
+#Installing jsom-pagination gem for paginating the JSON:
+gem 'jsom-pagination'
+
+# Installing json-api-errors-handler:
+  gem 'jsonapi_errors_handler'
+
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
