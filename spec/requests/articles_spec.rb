@@ -43,7 +43,7 @@ RSpec.describe ArticlesController, type: :request do
       expect(json_data.first[:id]).to eq(article2.id.to_s)
     end
 
-    it 'contain pagination links in the response' do
+    it 'contains pagination links in the response' do
       article1, article2, article3 = create_list(:article, 3)
       get '/articles', params: { page: { number: 2, size: 1} }
       expect(json[:links].length).to eq(5)
@@ -55,10 +55,26 @@ RSpec.describe ArticlesController, type: :request do
   end
 
   describe "GET /show" do
-    it "returns http success" do
-      get "/articles/show"
-      expect(response).to have_http_status(:success)
-    end
+    let(:article) { create :article }
+    subject { get "articles/#{article.id}"}
+    before { subject }
+
+      it "returns http success" do
+        get "/articles/:id"
+        expect(response).to have_http_status(:success)
+      end
+
+      it 'returns a proper JSON' do
+        aggregate_failures do
+          expect(json_data[:id]).to eq(article.id.to_s)
+          expect(json_data[:type]).to eq('article')
+          expect(json_data[:attributes]).to eq(
+            title: article.title,
+            slug: article.slug,
+            content: article.content
+          )
+        end
+      end
   end
 
 end
