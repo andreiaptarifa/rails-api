@@ -1,7 +1,10 @@
 class ArticlesController < ApplicationController
+  include Paginable
   def index
-    articles = Article.all
-    render json: serializer.new(articles)
+    paginated = paginate(Article.recent)
+
+    options = { meta: paginated.meta.to_h, links: paginated.links.to_h }
+    render json: serializer.new(paginated.items, options)
   end
 
   def serializer
