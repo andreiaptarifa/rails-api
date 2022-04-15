@@ -28,6 +28,13 @@ gem 'jsonapi-serializer'
 #Installing jsom-pagination gem for paginating the JSON:
 gem 'jsom-pagination'
 
+gem 'devise'
+
+gem 'octokit', '~> 4.0'
+
+gem 'omniauth-rails_csrf_protection'
+
+
 # Installing json-api-errors-handler:
   gem 'jsonapi_errors_handler'
 
