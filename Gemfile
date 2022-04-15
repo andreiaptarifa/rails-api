@@ -34,6 +34,7 @@ gem 'octokit', '~> 4.0'
 
 gem 'omniauth-rails_csrf_protection'
 
+gem 'omniauth-google-oauth2'
 
 # Installing json-api-errors-handler:
   gem 'jsonapi_errors_handler'
