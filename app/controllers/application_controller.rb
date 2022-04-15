@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include JsonapiErrorsHandler
+
   ErrorMapper.map_errors!({
       'ActiveRecord::RecordNotFound' => 'JsonapiErrorsHandler::Errors::NotFound'
   })
