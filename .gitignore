@@ -31,4 +31,4 @@
 /config/master.key
 
 # Ignore key in omniauth
-/config/initializers/.omniauth.rb
+/config/initializers/.omniauth
